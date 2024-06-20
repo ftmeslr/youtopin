@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useAddTodoMutation } from "../../../api/apiSlice";
 import Button from "../button/button";
 import Input from "../input/input";
-import classes from "./AddTodo.module.css";
+import classes from "./addTodo.module.css";
 
 const AddTodo = () => {
   const [todoText, setTodoText] = useState("");

@@ -8,6 +8,7 @@
   border-radius: 12px;
   width: 508px;
   margin: auto;
+  margin-top: 10px;
 }
 
 .todo__actions {
