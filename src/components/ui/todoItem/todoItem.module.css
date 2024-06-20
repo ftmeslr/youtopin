@@ -1,0 +1,36 @@
+.todo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #6c6c6c;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  width: 508px;
+  margin: auto;
+}
+
+.todo__actions {
+  display: flex;
+  align-items: center;
+}
+
+.todo__delete {
+  color: #7a7a7a;
+}
+
+.todo__reminder {
+  margin-left: 1rem;
+  color: #fff;
+}
+
+.todo__reminder.active {
+  color: var(--dark);
+  background: #fff;
+}
+
+.btn {
+  background: var(--dark);
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+}

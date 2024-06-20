@@ -1,46 +1,25 @@
-// src/components/TodoItem.tsx
-import React from "react";
+import { useDispatch } from "react-redux";
+import { deleteTodo } from "../../../store/slices/todoSlices";
+import classes from "./Todo.module.css";
 
-interface TodoItemProps {
-  text: string;
-  completed: boolean;
-  onEdit: () => void;
-  onDelete: () => void;
-}
+const TodoItem = ({ todo: { title, id } }: any) => {
+  const dispatch = useDispatch();
 
-const TodoItem: React.FC<TodoItemProps> = ({
-  text,
-  completed,
-  onEdit,
-  onDelete,
-}) => {
   return (
-    <div className="flex items-center justify-between bg-blue-200 px-4 py-2 my-2 rounded-lg">
-      <div className="flex items-center">
-        <span
-          className={`mr-2 px-2 py-1 rounded-full text-xs font-semibold ${
-            completed
-              ? "bg-green-200 text-green-800"
-              : "bg-red-200 text-red-800"
-          }`}
-        >
-          {completed ? "Done" : "Pending"}
-        </span>
-        <p
-          className={`text-lg ${
-            completed ? "line-through text-gray-600" : "text-blue-900"
-          }`}
-        >
-          {text}
-        </p>
+    <div className={classes.todo}>
+      <div className={classes.todo__title}>
+        <p>{title}</p>
       </div>
-      <div className="flex items-center space-x-2">
-        <button onClick={onEdit} className="text-blue-500 hover:text-blue-700">
-          Edit
+      <div className={classes.todo__actions}>
+        <button
+          onClick={() => dispatch(deleteTodo(id))}
+          className={`${classes.todo__delete} ${classes.btn}`}
+        >
+          <i className="fas fa-times"></i>
         </button>
-        <button onClick={onDelete} className="text-red-500 hover:text-red-700">
-          Delete
-        </button>
+        {/* <button onClick={() => dispatch(toggleReminder(id))} className={reminder ? `${classes.btn} ${classes.todo__reminder} ${classes.active}` : `${classes.btn} ${classes.todo__reminder}`}>
+                <i className="far fa-bell"></i>
+            </button> */}
       </div>
     </div>
   );

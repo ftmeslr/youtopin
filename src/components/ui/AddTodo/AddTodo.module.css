@@ -1,0 +1,10 @@
+section {
+  margin: 10px;
+}
+
+.form_container {
+  width: 100%;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+}

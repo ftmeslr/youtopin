@@ -1,15 +1,9 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {
-  @font-face {
-    font-family: "iranSans";
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url(../public/fonts/iranSans/IRANSansRegular.woff2) format("woff2");
-  }
+@font-face {
+  font-family: "iranSans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(../public/fonts/iranSans/IRANSansRegular.woff2) format("woff2");
 }
 
 html {
