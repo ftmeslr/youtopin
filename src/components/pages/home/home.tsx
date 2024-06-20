@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
-import Header from "../../ui/Header/Header";
+import Header from "../../ui/header/header";
 import AddTodo from "../../ui/AddTodo/AddTodo";
-import Todos from "../../ui/Todos/Todos";
+import Todos from "../../ui/todos/todos";
 import classes from "./home.module.css";
 import { FC } from "react";
 

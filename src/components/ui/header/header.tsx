@@ -1,5 +1,5 @@
 import { FC } from "react";
-import classes from "./Header.module.css";
+import classes from "./header.module.css";
 import { HeaderProps } from "./header.types";
 
 const Header: FC<HeaderProps> = ({ title }) => {

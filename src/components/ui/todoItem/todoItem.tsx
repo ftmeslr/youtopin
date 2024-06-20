@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { deleteTodo } from "../../../store/slices/todoSlices";
-import classes from "./Todo.module.css";
+import classes from "./todoItem.module.css";
 
 const TodoItem = ({ todo: { title, id } }: any) => {
   const dispatch = useDispatch();
