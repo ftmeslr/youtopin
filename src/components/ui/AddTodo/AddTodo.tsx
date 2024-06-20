@@ -1,35 +1,27 @@
 import React, { useState } from "react";
+import { useAddTodoMutation } from "../../../api/apiSlice";
 import Button from "../button/button";
 import Input from "../input/input";
 import classes from "./AddTodo.module.css";
-import { useDispatch } from "react-redux";
-import { addTodo } from "../../../store/slices/todoSlices";
 
 const AddTodo = () => {
   const [todoText, setTodoText] = useState("");
-  const dispatch = useDispatch();
   const [error, setError] = useState<string>("");
 
+  const [addTodo] = useAddTodoMutation();
   const submitTodo = (e: any) => {
     e.preventDefault();
 
-    // Check if the input is empty - a simple valodation to make sure the user input a todo
     if (!todoText.trim()) {
       setError("Please fill in your todo");
     } else {
       setError("");
 
-      // Create a new todo
       const newTodo = {
-        id: Math.random(),
+        id: Math.random().toString(),
         title: todoText,
       };
-
-      // Dispatch the new todo to the store
-      dispatch(addTodo(newTodo));
-
-      // Clear the input and reminder after submission
-      setTodoText("");
+      addTodo(newTodo);
     }
   };
 

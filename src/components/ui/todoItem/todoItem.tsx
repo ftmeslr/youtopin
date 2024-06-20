@@ -1,25 +1,33 @@
-import { useDispatch } from "react-redux";
-import { deleteTodo } from "../../../store/slices/todoSlices";
 import classes from "./todoItem.module.css";
+import {
+  useDeleteTodoMutation,
+  useUpdateTodoMutation,
+} from "../../../api/apiSlice";
+import { FC } from "react";
 
-const TodoItem = ({ todo: { title, id } }: any) => {
-  const dispatch = useDispatch();
-
+const TodoItem: FC<any> = ({ todo }) => {
+  const [deleteTodo] = useDeleteTodoMutation();
+  const [updateTodo] = useUpdateTodoMutation();
   return (
     <div className={classes.todo}>
-      <div className={classes.todo__title}>
-        <p>{title}</p>
+      <div className={classes.todoTitle_container}>
+        <input
+          type="checkbox"
+          checked={todo.completed}
+          id={todo.id}
+          onChange={() => updateTodo({ ...todo, completed: !todo.completed })}
+        />
+        <div className={classes.todo__title}>
+          <p>{todo.title}</p>
+        </div>
       </div>
       <div className={classes.todo__actions}>
         <button
-          onClick={() => dispatch(deleteTodo(id))}
+          onClick={() => deleteTodo(todo)}
           className={`${classes.todo__delete} ${classes.btn}`}
         >
-          <i className="fas fa-times"></i>
+          delete
         </button>
-        {/* <button onClick={() => dispatch(toggleReminder(id))} className={reminder ? `${classes.btn} ${classes.todo__reminder} ${classes.active}` : `${classes.btn} ${classes.todo__reminder}`}>
-                <i className="far fa-bell"></i>
-            </button> */}
       </div>
     </div>
   );

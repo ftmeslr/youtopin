@@ -1,12 +1,12 @@
-import { useSelector } from "react-redux";
+import { FC } from "react";
+import { useGetTodosQuery } from "../../../api/apiSlice";
+import AddTodo from "../../ui/addTodo/AddTodo";
 import Header from "../../ui/header/header";
-import AddTodo from "../../ui/AddTodo/AddTodo";
 import Todos from "../../ui/todos/todos";
 import classes from "./home.module.css";
-import { FC } from "react";
 
 const HomePage: FC = () => {
-  const todos = useSelector((state: any) => state.todos.todos);
+  const { data: todos, isLoading } = useGetTodosQuery({});
 
   return (
     <>
@@ -15,7 +15,7 @@ const HomePage: FC = () => {
       </div>
       <Header title="Todo App" />
       <AddTodo />
-      <Todos todos={todos} />
+      {!isLoading ? <Todos todos={todos} /> : <>isLoading</>}
     </>
   );
 };

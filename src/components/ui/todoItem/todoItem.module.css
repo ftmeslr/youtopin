@@ -13,24 +13,22 @@
 .todo__actions {
   display: flex;
   align-items: center;
+  font-size: 14px;
 }
 
 .todo__delete {
   color: #7a7a7a;
-}
-
-.todo__reminder {
-  margin-left: 1rem;
-  color: #fff;
-}
-
-.todo__reminder.active {
-  color: var(--dark);
-  background: #fff;
+  background-color: #b50000;
+  color: aliceblue;
 }
 
 .btn {
-  background: var(--dark);
-  font-size: 2rem;
+  border-radius: 12px;
+  border: none;
   padding: 0.5rem 1rem;
+  font-size: 14px;
+}
+
+.todoTitle_container {
+  display: flex;
 }
