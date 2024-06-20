@@ -1,9 +1,9 @@
 import { FC } from "react";
 import { useGetTodosQuery } from "../../../api/apiSlice";
-import AddTodo from "../../ui/addTodo/AddTodo";
 import Header from "../../ui/header/header";
 import Todos from "../../ui/todos/todos";
 import classes from "./home.module.css";
+import AddTodo from "../../ui/addTodo/AddTodo";
 
 const HomePage: FC = () => {
   const { data: todos, isLoading } = useGetTodosQuery({});
